@@ -1,3 +1,5 @@
+import com.company.ChessPlayers;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -32,10 +34,11 @@ public class MainWindow extends JFrame {
         gButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {     //нажатие на кнопку
-                JFrame generalList = getFrame();
-                generalList.setTitle("General list of chess players");
-                generalList.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-                connect();
+
+
+                //connect();
+                ChessPlayers cp = new ChessPlayers();
+                cp.setVisible(true);
             }
         });
 
@@ -96,33 +99,7 @@ public class MainWindow extends JFrame {
         return jFrame;
     }
 
-    public static void connect(){
-        Connection dbConnection = null;
-        try {
-            Class.forName("org.sqlite.JDBC");
-            dbConnection = DriverManager.getConnection("jdbc:sqlite:players.db");
-            System.out.println("Connected");
-            Statement dbStatement = dbConnection.createStatement();
-            dbStatement.executeUpdate("INSERT INTO ChessPlayers(citi, dateOfBirth, name, rating) VALUES ('Mariupol', '2229.87.20056', 'Andrey', 56)");
-            //dbStatement.executeUpdate("DELETE FROM ChessPlayers WHERE 1=1");
-            int counter = 0;
-            ResultSet result = dbStatement.executeQuery("SELECT * FROM ChessPlayers");
-            while (result.next()) {
-                System.out.println(++counter + ": " + result.getString(2) + " "
-                        + result.getString(3) + " " + result.getString(4) + " " + result.getString(5));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        } finally {
-            try {
-                if (dbConnection != null) {
-                    dbConnection.close();
-                }
-            } catch (SQLException ex) {
-                System.out.println(ex.getMessage());
-            }
-        }
-    }
+
 
 
     public static void main(String[] args) {
