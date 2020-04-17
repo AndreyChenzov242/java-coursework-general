@@ -20,7 +20,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/sqlite3/sqlite-jdbc-3.27.2.1.jar!/" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -46,8 +50,8 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Main" />
       <item itemvalue="Application.MainWindow" />
+      <item itemvalue="Application.Main" />
     </list>
     <recent_temporary>
       <list>
@@ -70,25 +74,37 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1874" height="344" key="GridCell.Tab.0.bottom" timestamp="1586532934184">
+    <state x="543" y="270" width="824" height="564" key="DBNavigator.DatasetFilterDialog" timestamp="1587141443609">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1874" height="344" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1586532934184" />
+    <state x="543" y="270" width="824" height="564" key="DBNavigator.DatasetFilterDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1587141443609" />
+    <state x="493" y="210" width="924" height="684" key="DBNavigator.ProjectSettingsDialog" timestamp="1587141008891">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="493" y="210" width="924" height="684" key="DBNavigator.ProjectSettingsDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1587141008891" />
+    <state x="738" y="310" width="735" height="484" key="FileChooserDialogImpl" timestamp="1587141180718">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="738" y="310" width="735" height="484" key="FileChooserDialogImpl/0.27.1920.1053@0.27.1920.1053" timestamp="1587141180718" />
+    <state width="1874" height="285" key="GridCell.Tab.0.bottom" timestamp="1587142555444">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1874" height="285" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1587142555444" />
     <state width="1874" height="257" key="GridCell.Tab.0.bottom/0.27.1920.988@0.27.1920.988" timestamp="1586374092998" />
-    <state width="1874" height="344" key="GridCell.Tab.0.center" timestamp="1586532934183">
+    <state width="1874" height="285" key="GridCell.Tab.0.center" timestamp="1587142555444">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1874" height="344" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1586532934183" />
+    <state width="1874" height="285" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1587142555444" />
     <state width="1874" height="257" key="GridCell.Tab.0.center/0.27.1920.988@0.27.1920.988" timestamp="1586374092997" />
-    <state width="1874" height="344" key="GridCell.Tab.0.left" timestamp="1586532934183">
+    <state width="1874" height="285" key="GridCell.Tab.0.left" timestamp="1587142555444">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1874" height="344" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1586532934183" />
+    <state width="1874" height="285" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1587142555444" />
     <state width="1874" height="257" key="GridCell.Tab.0.left/0.27.1920.988@0.27.1920.988" timestamp="1586374092997" />
-    <state width="1874" height="344" key="GridCell.Tab.0.right" timestamp="1586532934184">
+    <state width="1874" height="285" key="GridCell.Tab.0.right" timestamp="1587142555444">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
-    <state width="1874" height="344" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1586532934184" />
+    <state width="1874" height="285" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1587142555444" />
     <state width="1874" height="257" key="GridCell.Tab.0.right/0.27.1920.988@0.27.1920.988" timestamp="1586374092998" />
     <state width="1874" height="344" key="GridCell.Tab.1.bottom" timestamp="1586532934185">
       <screen x="0" y="27" width="1920" height="1053" />
@@ -110,6 +126,14 @@
     </state>
     <state width="1874" height="344" key="GridCell.Tab.1.right/0.27.1920.1053@0.27.1920.1053" timestamp="1586532934185" />
     <state width="1874" height="318" key="GridCell.Tab.1.right/0.27.1920.988@0.27.1920.988" timestamp="1586374092986" />
+    <state x="322" y="68" width="1024" height="845" key="SettingsEditor" timestamp="1587141190293">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="322" y="68" width="1024" height="845" key="SettingsEditor/0.27.1920.1053@0.27.1920.1053" timestamp="1587141190293" />
+    <state x="269" y="154" width="1372" height="796" key="new project wizard" timestamp="1587134021756">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="269" y="154" width="1372" height="796" key="new project wizard/0.27.1920.1053@0.27.1920.1053" timestamp="1587134021756" />
     <state x="623" y="257" width="672" height="678" key="search.everywhere.popup" timestamp="1586530778597">
       <screen x="0" y="27" width="1920" height="1053" />
     </state>
