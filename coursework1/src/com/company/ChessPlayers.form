@@ -5,7 +5,11 @@
     <constraints>
       <xy x="20" y="20" width="500" height="471"/>
     </constraints>
-    <properties/>
+    <properties>
+      <inheritsPopupMenu value="true"/>
+      <maximumSize width="500" height="500"/>
+      <opaque value="false"/>
+    </properties>
     <border type="none"/>
     <children>
       <grid id="7f5f7" binding="buttonsPanel" layout-manager="GridLayoutManager" row-count="2" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
@@ -53,6 +57,7 @@
                   <autoCreateRowSorter value="false"/>
                   <enabled value="false"/>
                   <intercellSpacing width="0" height="0"/>
+                  <maximumSize width="213213" height="32"/>
                   <preferredScrollableViewportSize width="450" height="400"/>
                   <selectionBackground color="-13670966"/>
                 </properties>

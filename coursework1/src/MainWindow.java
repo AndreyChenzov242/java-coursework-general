@@ -1,27 +1,33 @@
 import com.company.ChessPlayers;
+import com.company.AddDialog;
+import com.company.Database;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.*;
 
 public class MainWindow extends JFrame {
 
-    Toolkit toolkit = Toolkit.getDefaultToolkit();
-    Dimension dimension = toolkit.getScreenSize();
+    public ChessPlayers chessPlayers;
+    private Toolkit toolkit = Toolkit.getDefaultToolkit();
+    private Dimension dimension = toolkit.getScreenSize();
+    private JFrame mainWindow;
+    private Database db;
 
     public MainWindow() {
+        db = new Database();
 
-        JFrame jFrame = getFrame();
-        jFrame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        jFrame.setTitle("Chess catalog");
+        mainWindow = new JFrame();
+        mainWindow.setVisible(true);
+        mainWindow.setMinimumSize(dimension);
+        mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        mainWindow.setTitle("Chess catalog");
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(null);
 
-        jFrame.add(buttonPanel);
-
+        mainWindow.add(buttonPanel);
 
         JButton gButton = new JButton("General list of chess players");
         gButton.setFont(new Font("Arial", Font.BOLD, 16));
@@ -31,17 +37,6 @@ public class MainWindow extends JFrame {
         gButton.setFocusPainted(false);
         buttonPanel.add(gButton);
 
-        gButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {     //нажатие на кнопку
-
-
-                //connect();
-                ChessPlayers cp = new ChessPlayers();
-                cp.setVisible(true);
-            }
-        });
-
         JButton addButton = new JButton("Add a chess player");
         addButton.setFont(new Font("Arial", Font.BOLD, 16));
         addButton.setLocation(dimension.width / 2 - 150, dimension.height / 2 - 260);
@@ -49,13 +44,6 @@ public class MainWindow extends JFrame {
         addButton.setBorderPainted(false);
         addButton.setFocusPainted(false);
         buttonPanel.add(addButton);
-
-        addButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {     //нажатие на кнопку
-
-            }
-        });
 
         JButton delButton = new JButton("Delete a chess player");
         delButton.setFont(new Font("Arial", Font.BOLD, 16));
@@ -65,13 +53,6 @@ public class MainWindow extends JFrame {
         delButton.setFocusPainted(false);
         buttonPanel.add(delButton);
 
-        delButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent actionEvent) {     //нажатие на кнопку
-
-            }
-        });
-
         JButton exitButton = new JButton("Exit");
         exitButton.setFont(new Font("Arial", Font.BOLD, 16));
         exitButton.setLocation(dimension.width / 2 - 150, dimension.height / 2 - 80);
@@ -80,30 +61,43 @@ public class MainWindow extends JFrame {
         exitButton.setFocusPainted(false);
         buttonPanel.add(exitButton);
 
-        exitButton.addActionListener(new ActionListener() {
+        gButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {     //нажатие на кнопку
-                jFrame.dispose();
+                if (chessPlayers != null) {
+                    chessPlayers.setVisible(false);
+                    chessPlayers.dispose();
+                }
+                chessPlayers = new ChessPlayers(db);
+                chessPlayers.setVisible(true);
             }
         });
 
+        addButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {     //нажатие на кнопку
+                AddDialog add = new AddDialog(mainWindow, db, false);
+                add.setVisible(true);
+            }
+        });
+
+        delButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {     //нажатие на кнопку
+
+            }
+        });
+
+        exitButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {     //нажатие на кнопку
+                mainWindow.dispose();
+                chessPlayers.dispose();
+            }
+        });
     }
-
-
-    static JFrame getFrame() {
-        JFrame jFrame = new JFrame();
-        jFrame.setVisible(true);
-        Toolkit toolkit = Toolkit.getDefaultToolkit();
-        Dimension dimension = toolkit.getScreenSize();
-        jFrame.setMinimumSize(dimension);
-        return jFrame;
-    }
-
-
-
 
     public static void main(String[] args) {
         MainWindow mw = new MainWindow();
-
     }
 }

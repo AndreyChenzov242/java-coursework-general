@@ -23,11 +23,20 @@
     <autoscroll-to-editor value="false" />
     <autoscroll-from-editor value="true" />
     <show-object-properties value="true" />
-    <loaded-nodes />
+    <loaded-nodes>
+      <connection connection-id="da0c160f-b01f-4283-87eb-906ef3288908">
+        <schema name="main" object-types="column, view, constraint, dataset trigger, table, index" />
+      </connection>
+    </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="da0c160f-b01f-4283-87eb-906ef3288908">
-      <console name="Connection" type="STANDARD" schema="main" session="Main" />
+      <console name="Connection" type="STANDARD" schema="main" session="Main"><![CDATA[CREATE TABLE IF NOT EXISTS ChessPlayers(
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
+	name VARCHAR(50),
+	dateOfBirth VARCHAR(50),
+	citi VARCHAR(50),
+	rating INTEGER);]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
