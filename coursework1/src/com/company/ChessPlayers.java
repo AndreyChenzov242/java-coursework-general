@@ -1,15 +1,12 @@
 package com.company;
 
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
-import javax.xml.crypto.Data;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.*;
-import java.lang.Class;
-import java.util.ArrayList;
 import java.util.List;
 
 public class ChessPlayers extends JFrame {
@@ -21,6 +18,8 @@ public class ChessPlayers extends JFrame {
     private JTable table1;
     private JPanel buttonsPanel;
     private Database db;
+
+
 
     private final String[] columnNames = {
             "№",
@@ -35,11 +34,11 @@ public class ChessPlayers extends JFrame {
         table1 = new JTable();
         JScrollPane scrollPane = new JScrollPane(table1);
         getContentPane().add(scrollPane);
-
         update();
 
         pack();
         add(newPanel);
+
         setLocationRelativeTo(null);
         setTitle("General list of chess players");
         setMinimumSize(new Dimension(467, 500));
@@ -60,11 +59,29 @@ public class ChessPlayers extends JFrame {
         editButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                PreEditor preEditor = new PreEditor(thisObj,db);
+                preEditor.setVisible(true);
                 update();
             }
         });
-    }
 
+        deleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                DelDialog del = new DelDialog(thisObj, db);
+                del.setVisible(true);
+                update();
+
+                // снизу
+            }
+        });
+    }
+    public int getNumber(int index){
+        return array.get(index).getId();
+    }
+    public int getArraySize(){
+        return array.size();
+    }
     public void update() {
         array = db.fetchData();
         String data[][] = new String[array.size()][5];

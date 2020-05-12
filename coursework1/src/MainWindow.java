@@ -1,6 +1,7 @@
 import com.company.ChessPlayers;
 import com.company.AddDialog;
 import com.company.Database;
+import com.company.DelDialog;
 
 import javax.swing.*;
 import java.awt.*;
@@ -9,57 +10,47 @@ import java.awt.event.ActionListener;
 
 public class MainWindow extends JFrame {
 
+
     public ChessPlayers chessPlayers;
-    private Toolkit toolkit = Toolkit.getDefaultToolkit();
-    private Dimension dimension = toolkit.getScreenSize();
+    private Dimension dimension = new Dimension(800,900);
     private JFrame mainWindow;
     private Database db;
+    private ImageIcon listImg = new ImageIcon("list.png");
+    private ImageIcon plusImg = new ImageIcon("plus.png");
+    private ImageIcon deleteImg = new ImageIcon("delete5.png");
+    private ImageIcon exitImg = new ImageIcon("exit.png");
+    private Color btnColor = new Color(45, 200, 185);
+    private Color backgroundColor = new Color(23, 24, 50);
+
 
     public MainWindow() {
         db = new Database();
+        //db.randomFill(100);
 
         mainWindow = new JFrame();
+
         mainWindow.setVisible(true);
-        mainWindow.setMinimumSize(dimension);
+        mainWindow.setPreferredSize(dimension);
+        mainWindow.setMaximumSize(dimension);
         mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainWindow.setTitle("Chess catalog");
+        mainWindow.setLocationRelativeTo(null);
+        mainWindow.pack();
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(null);
+        buttonPanel.setBackground(backgroundColor);
 
-        mainWindow.add(buttonPanel);
-
-        JButton gButton = new JButton("General list of chess players");
-        gButton.setFont(new Font("Arial", Font.BOLD, 16));
-        gButton.setLocation(dimension.width / 2 - 150, dimension.height / 2 - 350);
-        gButton.setSize(300, 50);
-        gButton.setBorderPainted(false);
-        gButton.setFocusPainted(false);
+        JButton gButton = new Button("List of chess players", btnColor,150, 350,listImg );
         buttonPanel.add(gButton);
-
-        JButton addButton = new JButton("Add a chess player");
-        addButton.setFont(new Font("Arial", Font.BOLD, 16));
-        addButton.setLocation(dimension.width / 2 - 150, dimension.height / 2 - 260);
-        addButton.setSize(300, 50);
-        addButton.setBorderPainted(false);
-        addButton.setFocusPainted(false);
+        JButton addButton = new Button("Add a chess player", btnColor,150, 260,plusImg);
         buttonPanel.add(addButton);
-
-        JButton delButton = new JButton("Delete a chess player");
-        delButton.setFont(new Font("Arial", Font.BOLD, 16));
-        delButton.setLocation(dimension.width / 2 - 150, dimension.height / 2 - 170);
-        delButton.setSize(300, 50);
-        delButton.setBorderPainted(false);
-        delButton.setFocusPainted(false);
-        buttonPanel.add(delButton);
-
-        JButton exitButton = new JButton("Exit");
-        exitButton.setFont(new Font("Arial", Font.BOLD, 16));
-        exitButton.setLocation(dimension.width / 2 - 150, dimension.height / 2 - 80);
-        exitButton.setSize(300, 50);
-        exitButton.setBorderPainted(false);
-        exitButton.setFocusPainted(false);
+        JButton killButton = new Button("Kill my lovely database", btnColor, 150, 170,deleteImg);
+        buttonPanel.add(killButton);
+        JButton exitButton = new Button("Exit",btnColor,150,80,exitImg);
+        //exitButton.setHorizontalAlignment(SwingConstants.CENTER);
         buttonPanel.add(exitButton);
+        mainWindow.add(buttonPanel);
 
         gButton.addActionListener(new ActionListener() {
             @Override
@@ -81,10 +72,10 @@ public class MainWindow extends JFrame {
             }
         });
 
-        delButton.addActionListener(new ActionListener() {
+        killButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {     //нажатие на кнопку
-
+                db.killDB();
             }
         });
 
@@ -95,7 +86,11 @@ public class MainWindow extends JFrame {
                 chessPlayers.dispose();
             }
         });
+
+
+
     }
+
 
     public static void main(String[] args) {
         MainWindow mw = new MainWindow();

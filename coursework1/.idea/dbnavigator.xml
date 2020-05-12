@@ -25,18 +25,13 @@
     <show-object-properties value="true" />
     <loaded-nodes>
       <connection connection-id="da0c160f-b01f-4283-87eb-906ef3288908">
-        <schema name="main" object-types="column, view, constraint, dataset trigger, table, index" />
+        <schema name="main" object-types="dataset trigger, view, table, column, constraint, index" />
       </connection>
     </loaded-nodes>
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="da0c160f-b01f-4283-87eb-906ef3288908">
-      <console name="Connection" type="STANDARD" schema="main" session="Main"><![CDATA[CREATE TABLE IF NOT EXISTS ChessPlayers(
-	id INTEGER PRIMARY KEY AUTOINCREMENT,
-	name VARCHAR(50),
-	dateOfBirth VARCHAR(50),
-	citi VARCHAR(50),
-	rating INTEGER);]]></console>
+      <console name="Connection" type="STANDARD" schema="main" session="Main"><![CDATA[SELECT * FROM ChessPlayers]]></console>
     </connection>
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
@@ -46,6 +41,7 @@
     <connection id="da0c160f-b01f-4283-87eb-906ef3288908" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="da0c160f-b01f-4283-87eb-906ef3288908" dataset="main.sqlite_sequence" active-filter-id="" />
     <filter-actions connection-id="da0c160f-b01f-4283-87eb-906ef3288908" dataset="main.ChessPlayers" active-filter-id="EMPTY_FILTER">
       <filter id="158aa3a3-ee46-473b-8494-3ec6bf08a866" name="1" temporary="false" custom-name="false" type="basic" join-type="AND">
         <condition column="id" operator="=" value="1" active="true" />
