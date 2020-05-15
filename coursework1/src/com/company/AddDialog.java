@@ -17,6 +17,9 @@ public class AddDialog extends JDialog {
     private JLabel Label2;
     private JLabel label3;
     private JLabel Label4;
+    private String DigitRegex = "\\d+";
+    private String NotDigitRegex = "\\w+";
+    private String DOBRegex = "^[0-3][0-9]-[0-1][0-9]-\\d{4}$";
 
     public AddDialog(Frame owner, Database db, boolean modal){
         super(owner, "Add chesser", modal);
@@ -33,9 +36,9 @@ public class AddDialog extends JDialog {
         buttonAccept.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
-                if(textFieldName.getText().equals("")||textFieldDOB.getText().equals("")
-                        ||textFieldCity.getText().equals("")||textFieldRating.getText().equals("")){
-                    JOptionPane.showMessageDialog(null,"Enter all data");
+                if(!textFieldName.getText().matches(NotDigitRegex)||!textFieldDOB.getText().matches(DOBRegex)
+                        ||!textFieldCity.getText().matches(NotDigitRegex)||!textFieldRating.getText().matches(DigitRegex)){
+                    JOptionPane.showMessageDialog(null,"Wrong data");
                 } else{
                     db.addElement(textFieldCity.getText(), textFieldDOB.getText(),
                             textFieldName.getText(), textFieldRating.getText());

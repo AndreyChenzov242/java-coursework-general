@@ -28,7 +28,7 @@ public class PreEditor extends JDialog {
                     if(chessPlayers.getArraySize()<Integer.parseInt(textField1.getText())){
                         JOptionPane.showMessageDialog(null,"Out of bounds");
                     } else {
-                        Editor editor = new Editor(chessPlayers,db,chessPlayers.getNumber(Integer.parseInt(textField1.getText())-1));
+                        Editor editor = new Editor(chessPlayers,db, textField1.getText());
                         editor.setVisible(true);
                         dispose();
                     }

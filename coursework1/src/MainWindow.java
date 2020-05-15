@@ -5,11 +5,9 @@ import com.company.DelDialog;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
-public class MainWindow extends JFrame {
-
+public class MainWindow {
 
     public ChessPlayers chessPlayers;
     private Dimension dimension = new Dimension(800,900);
@@ -22,20 +20,23 @@ public class MainWindow extends JFrame {
     private Color btnColor = new Color(45, 200, 185);
     private Color backgroundColor = new Color(23, 24, 50);
 
-
     public MainWindow() {
         db = new Database();
         //db.randomFill(100);
 
         mainWindow = new JFrame();
 
-        mainWindow.setVisible(true);
-        mainWindow.setPreferredSize(dimension);
-        mainWindow.setMaximumSize(dimension);
+
+
+        mainWindow.setMinimumSize(dimension);
         mainWindow.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         mainWindow.setTitle("Chess catalog");
         mainWindow.setLocationRelativeTo(null);
+        mainWindow.setResizable(false);
         mainWindow.pack();
+
+
+        mainWindow.setVisible(true);
 
         JPanel buttonPanel = new JPanel();
         buttonPanel.setLayout(null);
@@ -52,15 +53,55 @@ public class MainWindow extends JFrame {
         buttonPanel.add(exitButton);
         mainWindow.add(buttonPanel);
 
+
         gButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {     //нажатие на кнопку
+                mainWindow.setVisible(false);
                 if (chessPlayers != null) {
                     chessPlayers.setVisible(false);
                     chessPlayers.dispose();
                 }
                 chessPlayers = new ChessPlayers(db);
+                chessPlayers.addWindowListener(new WindowListener() {
+                    @Override
+                    public void windowOpened(WindowEvent windowEvent) {
+
+                    }
+
+                    @Override
+                    public void windowClosing(WindowEvent windowEvent) {
+
+                    }
+
+                    @Override
+                    public void windowClosed(WindowEvent windowEvent) {
+                        mainWindow.setVisible(true);
+                    }
+
+                    @Override
+                    public void windowIconified(WindowEvent windowEvent) {
+
+                    }
+
+                    @Override
+                    public void windowDeiconified(WindowEvent windowEvent) {
+
+                    }
+
+                    @Override
+                    public void windowActivated(WindowEvent windowEvent) {
+
+                    }
+
+                    @Override
+                    public void windowDeactivated(WindowEvent windowEvent) {
+
+                    }
+                });
+                mainWindow.setVisible(false);
                 chessPlayers.setVisible(true);
+
             }
         });
 
@@ -86,9 +127,6 @@ public class MainWindow extends JFrame {
                 chessPlayers.dispose();
             }
         });
-
-
-
     }
 
 

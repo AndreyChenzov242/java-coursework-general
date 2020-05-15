@@ -31,8 +31,14 @@ public class ChessPlayers extends JFrame {
 
     public ChessPlayers(Database db) {
         this.db = db;
-        table1 = new JTable();
+        table1 = new JTable()/*{
+            @Override
+            public boolean isCellEditable(int i, int i1) {
+                return false;
+            }
+        }*/;
         JScrollPane scrollPane = new JScrollPane(table1);
+
         getContentPane().add(scrollPane);
         update();
 
