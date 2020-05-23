@@ -15,10 +15,12 @@ public class MainWindow {
     private Database db;
     private ImageIcon listImg = new ImageIcon("list.png");
     private ImageIcon plusImg = new ImageIcon("plus.png");
-    private ImageIcon deleteImg = new ImageIcon("delete5.png");
+    private ImageIcon deleteImg = new ImageIcon("kill.png");
     private ImageIcon exitImg = new ImageIcon("exit.png");
+    private ImageIcon aboutImg = new ImageIcon("about.png");
     private Color btnColor = new Color(45, 200, 185);
     private Color backgroundColor = new Color(23, 24, 50);
+    private JDialog jDialog = new JDialog();;
 
     public MainWindow() {
         db = new Database();
@@ -42,14 +44,15 @@ public class MainWindow {
         buttonPanel.setLayout(null);
         buttonPanel.setBackground(backgroundColor);
 
-        JButton gButton = new Button("List of chess players", btnColor,150, 350,listImg );
+        JButton gButton = new Button("List of chess players",150, 390,listImg );
         buttonPanel.add(gButton);
-        JButton addButton = new Button("Add a chess player", btnColor,150, 260,plusImg);
+        JButton addButton = new Button("Add a chess player",150, 300,plusImg);
         buttonPanel.add(addButton);
-        JButton killButton = new Button("Kill my lovely database", btnColor, 150, 170,deleteImg);
+        JButton killButton = new Button("Kill my lovely database", 150, 210,deleteImg);
         buttonPanel.add(killButton);
-        JButton exitButton = new Button("Exit",btnColor,150,80,exitImg);
-        //exitButton.setHorizontalAlignment(SwingConstants.CENTER);
+        JButton aboutButton = new Button("About", 150, 120,aboutImg);
+        buttonPanel.add(aboutButton);
+        JButton exitButton = new Button("Exit",150,30,exitImg);
         buttonPanel.add(exitButton);
         mainWindow.add(buttonPanel);
 
@@ -120,11 +123,35 @@ public class MainWindow {
             }
         });
 
+        aboutButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {     //нажатие на кнопку
+                if(!jDialog.isVisible()) {
+                    JPanel jPanel = new JPanel();
+                    jDialog.setTitle("About");
+                    JLabel jLabel = new JLabel();
+                    jLabel.setText("<html> This is a program that shows a list <br> of chess players. " +
+                            "You can remove and <br> add them yourself. <br> <br> <br> <br> <br> " +
+                            "© Created by Andrey Chenzov © </html>");
+                    jLabel.setForeground(Color.LIGHT_GRAY);
+                    jLabel.setVisible(true);
+                    jPanel.add(jLabel);
+                    jPanel.setBackground(backgroundColor);
+                    jDialog.add(jPanel);
+                    jDialog.setLocation(dimension.width-200,dimension.height/6);
+                    jDialog.setVisible(true);
+                    jDialog.setMinimumSize(new Dimension(300, 160));
+                    jDialog.setResizable(false);
+                } else {
+                    jDialog.dispose();
+                }
+            }
+        });
+
         exitButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {     //нажатие на кнопку
-                mainWindow.dispose();
-                chessPlayers.dispose();
+                System.exit(0);
             }
         });
     }
